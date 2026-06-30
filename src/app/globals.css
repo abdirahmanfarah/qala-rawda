@@ -1,0 +1,1907 @@
+/* KFGQPC Uthmanic Script HAFS — King Fahd Complex, Madinah
+   License: free to use, copy, distribute for Quran display.
+   Must not be modified, subsetted, altered, or sold.
+   Loaded whole and unmodified via CDN. */
+@font-face {
+    font-family: 'KFGQPC Uthmanic Script HAFS';
+    src: url('https://cdn.jsdelivr.net/gh/raflyfahrezi/KFGQPC-Uthmanic-Script-HAFS-Regular@master/arabic.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    /* Warm neutrals — Day */
+    --bg: #FAF6F0;
+    --bg-card: #FCF9F4;
+    --bg-raised: #F0EBE3;
+    --text: #2A2114;
+    --text-soft: #6B6254;
+    --text-muted: #978F7F;
+    --border: #E6DFD3;
+    --border-light: #EDE8E0;
+
+    /* Garden greens — four roles + state */
+    --cypress: #2D4A3E;
+    --cypress-press: #233B31;
+    --olive: #6E7D55;
+    --sage: #AAB59E;
+    --pale-sage: #DDE3D5;
+
+    /* Warm accent — rare use */
+    --brass: #A6803F;
+
+    /* Green backgrounds (landing, buttons, badges) — stays dark in both themes */
+    --cypress-bg: #2D4A3E;
+    --cypress-bg-press: #233B31;
+    --on-cypress: #FAF6F0;
+
+    /* Legacy aliases */
+    --pine: #233B31;
+
+    /* Shadow */
+    --shadow-card: 0 1px 2px rgba(74,58,32,.04), 0 6px 18px -12px rgba(74,58,32,.12);
+}
+
+/* Night — warm stone-black, not cold grey */
+[data-theme="dark"] {
+    --bg: #17130D;
+    --bg-card: #1E1A13;
+    --bg-raised: #262119;
+    --text: #E8E0D4;
+    --text-soft: #B8AD9E;
+    --text-muted: #7A7060;
+    --border: #332E25;
+    --border-light: #2A2520;
+
+    /* Greens lift for legibility on dark */
+    --cypress: #A7B894;
+    --cypress-press: #8FA47A;
+    --olive: #A7B894;
+    --sage: #5C6B4A;
+    --pale-sage: #2A3022;
+
+    /* Backgrounds stay dark green */
+    --cypress-bg: #2D4A3E;
+    --cypress-bg-press: #1E3329;
+    --on-cypress: #E8E0D4;
+
+    --brass: #C99E5C;
+    --pine: #8FA47A;
+
+    --shadow-card: 0 1px 2px rgba(0,0,0,.15), 0 6px 18px -12px rgba(0,0,0,.35);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--bg);
+    min-height: 100vh;
+    font-family: 'Spectral', serif;
+    color: var(--text);
+}
+
+/* ===================== */
+/*    LANDING PAGE       */
+/* ===================== */
+.landing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem;
+    text-align: center;
+    background: var(--cypress-bg);
+}
+
+.name-arabic-large {
+    font-family: 'Amiri', serif;
+    font-size: 6rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: var(--on-cypress);
+    direction: rtl;
+    opacity: 0;
+    animation: fadeIn 1.5s ease forwards;
+}
+
+.name-transliteration-large {
+    font-family: 'Spectral', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #AAB59E;
+    margin-bottom: 0.5rem;
+    opacity: 0;
+    animation: fadeIn 1.5s ease 0.4s forwards;
+}
+
+.name-meaning-large {
+    font-family: 'Spectral', serif;
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: #D4DCCF;
+    margin-bottom: 4rem;
+    opacity: 0;
+    animation: fadeIn 1.5s ease 0.8s forwards;
+}
+
+.enter-button {
+    font-family: 'Spectral', serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #D4DCCF;
+    background: none;
+    border: 1px solid #233B31;
+    padding: 1rem 3rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0;
+    animation: fadeIn 1.5s ease 1.2s forwards;
+}
+
+.enter-button:hover {
+    background: var(--bg);
+    color: var(--cypress);
+    border-color: var(--bg);
+}
+
+/* ===================== */
+/*      THE HALL         */
+/* ===================== */
+.hall {
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.hall-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-top: 2rem;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+}
+
+.hall-header h1 {
+    font-family: 'Amiri', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    direction: rtl;
+    color: var(--cypress);
+}
+
+.hall-header p {
+    font-family: 'Spectral', serif;
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: var(--text-muted);
+    letter-spacing: 0.15em;
+}
+
+.hall-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+/* Daily widgets */
+.daily-widgets {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+    direction: ltr;
+}
+
+.daily-card {
+    border: 1px solid var(--border);
+    padding: 1.5rem 1.25rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: var(--bg-card);
+    box-shadow: var(--shadow-card);
+    opacity: 0;
+    animation: fadeIn 0.8s ease forwards;
+}
+
+.daily-card:hover {
+    border-color: var(--cypress-press);
+    background: var(--bg-raised);
+}
+
+.daily-card .daily-card-arabic {
+    font-family: 'Amiri', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    direction: rtl;
+    color: var(--cypress);
+    margin-bottom: 0.4rem;
+}
+
+.daily-card .daily-card-title {
+    font-family: 'Spectral', serif;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 0.3rem;
+}
+
+.daily-card .daily-card-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 300;
+    color: var(--text-soft);
+    line-height: 1.5;
+}
+
+.daily-card .daily-card-link {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-top: 0.75rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.daily-card:hover .daily-card-link {
+    opacity: 1;
+}
+
+/* Room doors */
+.rooms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+    direction: ltr;
+}
+
+.room-door {
+    border: 1px solid var(--border);
+    padding: 2.5rem 2rem;
+    text-align: center;
+    direction: ltr;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0;
+    animation: fadeIn 0.6s ease forwards;
+    background: var(--bg-card);
+    box-shadow: var(--shadow-card);
+}
+
+.room-door:hover {
+    border-color: var(--cypress-press);
+    background: var(--bg-raised);
+}
+
+.room-door .room-arabic {
+    font-family: 'Amiri', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    direction: rtl;
+    margin-bottom: 0.5rem;
+    color: var(--cypress);
+}
+
+.room-door .room-name {
+    font-family: 'Spectral', serif;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 0.4rem;
+}
+
+.room-door .room-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: var(--text-soft);
+    line-height: 1.6;
+}
+
+/* ===================== */
+/*     INNER PAGES       */
+/* ===================== */
+.inner-page {
+    min-height: 100vh;
+    padding: 3rem 2rem;
+}
+
+.top-bar {
+    max-width: 1200px;
+    margin: 0 auto 2rem auto;
+}
+
+.back-button {
+    font-family: 'Spectral', serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--text-muted);
+    background: none;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 0.05em;
+    transition: color 0.3s ease;
+}
+
+.back-button:hover {
+    color: var(--cypress);
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+}
+
+.page-header h1 {
+    font-family: 'Amiri', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    direction: rtl;
+    margin-bottom: 0.5rem;
+    color: var(--cypress);
+}
+
+.page-header p {
+    font-family: 'Spectral', serif;
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+}
+
+.inner-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ===================== */
+/*    99 NAMES GRID      */
+/* ===================== */
+.names-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    direction: ltr;
+}
+
+.name-card {
+    border: 1px solid var(--border);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    direction: ltr;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    opacity: 0;
+    animation: fadeIn 0.6s ease forwards;
+    background: var(--bg-card);
+    box-shadow: var(--shadow-card);
+}
+
+.name-card:hover {
+    border-color: var(--cypress-press);
+    background: var(--bg-raised);
+}
+
+.name-card .number {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+}
+
+.name-card .arabic {
+    font-family: 'Amiri', serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 0.75rem;
+    color: var(--cypress);
+    direction: rtl;
+}
+
+.name-card .translit {
+    font-family: 'Spectral', serif;
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.4rem;
+}
+
+.name-card .translated {
+    font-family: 'Spectral', serif;
+    font-size: 1.15rem;
+    font-weight: 300;
+    color: var(--text-soft);
+}
+
+/* ===================== */
+/*    QURAN PATH         */
+/* ===================== */
+.surah-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1rem;
+}
+
+.surah-card {
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    direction: ltr;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0;
+    animation: fadeIn 0.4s ease forwards;
+    background: var(--bg-card);
+    box-shadow: var(--shadow-card);
+}
+
+.surah-card:hover {
+    border-color: var(--cypress-press);
+    background: var(--bg-raised);
+}
+
+.surah-number {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border);
+    flex-shrink: 0;
+}
+
+.surah-info {
+    flex: 1;
+}
+
+.surah-info .surah-name-ar {
+    font-family: 'Amiri', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--cypress);
+    direction: rtl;
+    text-align: right;
+}
+
+.surah-info .surah-name-en {
+    font-family: 'Spectral', serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--text);
+}
+
+.surah-meta {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+}
+
+.surah-right {
+    text-align: right;
+    flex-shrink: 0;
+}
+
+/* Surah detail view */
+.surah-detail {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.surah-detail-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.surah-detail-header .surah-detail-arabic {
+    font-family: 'Amiri', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--cypress);
+    direction: rtl;
+    margin-bottom: 0.5rem;
+}
+
+.surah-detail-header .surah-detail-name {
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+}
+
+.surah-detail-header .surah-detail-meta {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.surah-info-toggle {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text-soft);
+    padding: 0.4rem 1rem;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.surah-info-toggle:hover {
+    border-color: var(--cypress);
+    color: var(--cypress);
+}
+
+.surah-info-wrapper {
+    margin-bottom: 2rem;
+}
+
+.surah-info-wrapper .surah-info-content {
+    display: none;
+}
+
+.surah-info-wrapper.open .surah-info-content {
+    display: block;
+}
+
+.surah-info-box {
+    background: var(--bg-raised);
+    border: 1px solid var(--border);
+    padding: 2rem;
+    margin-top: 0.5rem;
+    font-family: 'Spectral', serif;
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--text-soft);
+}
+
+.surah-info-box h3 {
+    font-family: 'Spectral', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--cypress);
+    margin-bottom: 1rem;
+}
+
+.tafsir-toggle {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.tafsir-toggle button {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.75rem;
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tafsir-toggle button.active {
+    background: var(--cypress-bg);
+    border-color: var(--cypress-bg);
+    color: var(--on-cypress);
+}
+
+.tafsir-toggle button:hover:not(.active) {
+    border-color: var(--cypress);
+    color: var(--cypress);
+}
+
+.bismillah {
+    font-family: 'KFGQPC Uthmanic Script HAFS', 'Amiri Quran', 'Amiri', serif;
+    font-size: 2.4rem;
+    text-align: center;
+    color: var(--cypress);
+    direction: rtl;
+    margin-bottom: 2rem;
+    padding: 1.5rem 0;
+    line-height: 2.2;
+}
+
+/* Reading mode tabs */
+.reading-tabs {
+    display: flex;
+    gap: 0;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.reading-tab {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    background: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+}
+
+.reading-tab.active {
+    color: var(--cypress);
+    border-bottom-color: var(--cypress);
+}
+
+.reading-tab:hover:not(.active) {
+    color: var(--cypress-press);
+}
+
+/* Ayah block — quran.com style */
+.ayah-block {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.ayah-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.ayah-toolbar-left {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.ayah-toolbar-right {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.ayah-num-badge {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    background: var(--bg-raised);
+    padding: 0.25rem 0.6rem;
+    border: 1px solid var(--border);
+}
+
+.ayah-tool-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 0.3rem;
+    font-size: 1rem;
+    transition: color 0.2s ease;
+    display: flex;
+    align-items: center;
+}
+
+.ayah-tool-btn:hover {
+    color: var(--cypress);
+}
+
+.ayah-tool-btn.bookmarked {
+    color: var(--cypress);
+}
+
+.ayah-tool-btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+.ayah-arabic {
+    font-family: 'KFGQPC Uthmanic Script HAFS', 'Amiri Quran', 'Amiri', serif;
+    font-size: 2.05rem;
+    font-weight: 400;
+    line-height: 2.2;
+    direction: rtl;
+    text-align: right;
+    color: var(--text);
+    margin-bottom: 1rem;
+    padding: 0.5rem 0;
+}
+
+.ayah-translation {
+    font-family: 'Spectral', serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    line-height: 1.8;
+    color: var(--text-soft);
+    margin-bottom: 0.75rem;
+    max-width: 60ch;
+}
+
+/* Word by word */
+.ayah-wbw {
+    display: flex;
+    flex-wrap: wrap;
+    direction: rtl;
+    gap: 1.5rem 2rem;
+    justify-content: center;
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+}
+
+.wbw-word {
+    text-align: center;
+    min-width: 60px;
+}
+
+.wbw-arabic {
+    font-family: 'KFGQPC Uthmanic Script HAFS', 'Amiri Quran', 'Amiri', serif;
+    font-size: 1.7rem;
+    color: var(--text);
+    line-height: 2;
+    direction: rtl;
+}
+
+.wbw-transliteration {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    margin-top: 0.2rem;
+    direction: ltr;
+}
+
+.wbw-translation {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    color: var(--olive);
+    margin-top: 0.15rem;
+    direction: ltr;
+}
+
+/* Ayah footer — tafsir & notes links */
+.ayah-footer {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+}
+
+.ayah-footer-link {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--olive);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    transition: color 0.2s ease;
+    border: none;
+    background: none;
+    padding: 0;
+}
+
+.ayah-footer-link:hover {
+    color: var(--cypress);
+}
+
+.ayah-footer-link svg {
+    width: 14px;
+    height: 14px;
+}
+
+.ayah-footer-sep {
+    width: 1px;
+    height: 14px;
+    background: var(--border);
+}
+
+/* Tafsir popup */
+.tafsir-popup {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    margin-top: 0.75rem;
+    max-height: 400px;
+    overflow-y: auto;
+    animation: fadeIn 0.3s ease;
+}
+
+.tafsir-popup-tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 1rem;
+}
+
+.tafsir-popup-tab {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    padding: 0.4rem 0.8rem;
+    border: none;
+    background: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: all 0.2s ease;
+}
+
+.tafsir-popup-tab.active {
+    color: var(--cypress);
+    border-bottom-color: var(--cypress);
+}
+
+.tafsir-popup-text {
+    font-family: 'Spectral', serif;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--text-soft);
+    max-width: 62ch;
+}
+
+.tafsir-popup-text h2 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--cypress);
+    margin: 1rem 0 0.5rem;
+}
+
+.tafsir-popup-text p {
+    margin-bottom: 0.75rem;
+}
+
+/* Notes input */
+.ayah-note-box {
+    margin-top: 0.75rem;
+    animation: fadeIn 0.3s ease;
+}
+
+.ayah-note-input {
+    width: 100%;
+    min-height: 80px;
+    padding: 0.75rem;
+    font-family: 'Spectral', serif;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+    resize: vertical;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.ayah-note-input:focus {
+    border-color: var(--cypress);
+}
+
+.ayah-note-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.ayah-note-save {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.75rem;
+    background: var(--cypress-bg);
+    color: var(--on-cypress);
+    border: none;
+    cursor: pointer;
+}
+
+.ayah-note-save:hover {
+    background: var(--cypress-bg-press);
+}
+
+.mode-toggle {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+}
+
+.mode-btn {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.5rem 1.2rem;
+    border: 1px solid var(--border);
+    background: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.mode-btn.active {
+    border-color: var(--cypress);
+    color: var(--cypress);
+    background: var(--bg-raised);
+}
+
+.mode-btn:hover {
+    border-color: var(--cypress-press);
+    color: var(--cypress-press);
+}
+
+.loading-text {
+    font-family: 'Spectral', serif;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    text-align: center;
+    padding: 3rem;
+}
+
+/* ===================== */
+/*      HADITH PAGE      */
+/* ===================== */
+.hadith-collections-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.hadith-collection-card {
+    border: 1px solid var(--border);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    direction: ltr;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0;
+    animation: fadeIn 0.6s ease forwards;
+    background: var(--bg-card);
+    box-shadow: var(--shadow-card);
+}
+
+.hadith-collection-card:hover {
+    border-color: var(--cypress-press);
+    background: var(--bg-raised);
+}
+
+.hadith-collection-card .hc-arabic {
+    font-family: 'Amiri', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    direction: rtl;
+    color: var(--cypress);
+    margin-bottom: 0.4rem;
+}
+
+.hadith-collection-card .hc-name {
+    font-family: 'Spectral', serif;
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+}
+
+.hadith-collection-card .hc-author {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: var(--text-soft);
+    margin-bottom: 0.5rem;
+}
+
+.hadith-collection-card .hc-meta {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.hadith-collection-card .hc-grade {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--cypress);
+    border: 1px solid var(--cypress-press);
+    padding: 0.15rem 0.5rem;
+    display: inline-block;
+    margin-top: 0.75rem;
+}
+
+/* Hadith browser */
+.hadith-browser {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hadith-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.hadith-nav-btn {
+    font-family: 'Spectral', serif;
+    font-size: 1.1rem;
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text-soft);
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.hadith-nav-btn:hover {
+    border-color: var(--cypress);
+    color: var(--cypress);
+}
+
+.hadith-nav-num {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    min-width: 100px;
+    text-align: center;
+}
+
+.hadith-jump {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.hadith-jump input {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    width: 100px;
+    padding: 0.4rem 0.6rem;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+    text-align: center;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.hadith-jump input:focus {
+    border-color: var(--cypress);
+}
+
+.hadith-jump button {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.45rem 0.8rem;
+    background: var(--cypress-bg);
+    color: var(--on-cypress);
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.hadith-jump button:hover {
+    background: var(--cypress-bg-press);
+}
+
+.hadith-jump-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+}
+
+.hadith-display {
+    padding: 2rem 0;
+}
+
+.hadith-number-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
+}
+
+.hadith-arabic-text {
+    font-family: 'Amiri', serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 2;
+    direction: rtl;
+    text-align: right;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.hadith-english-text {
+    font-family: 'Spectral', serif;
+    font-size: 1.05rem;
+    font-weight: 300;
+    line-height: 1.85;
+    color: var(--text-soft);
+    margin-bottom: 1.5rem;
+}
+
+.hadith-grade-badge {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--cypress);
+    border: 1px solid var(--cypress-press);
+    padding: 0.2rem 0.6rem;
+    display: inline-block;
+}
+
+/* Hadith books grid */
+.hadith-books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+}
+
+.hadith-book-card {
+    border: 1px solid var(--border);
+    padding: 1.2rem 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    opacity: 0;
+    animation: fadeIn 0.4s ease forwards;
+    background: var(--bg-card);
+    box-shadow: var(--shadow-card);
+}
+
+.hadith-book-card:hover {
+    border-color: var(--cypress-press);
+    background: var(--bg-raised);
+}
+
+.hadith-book-num {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    min-width: 24px;
+}
+
+.hadith-book-name {
+    font-family: 'Spectral', serif;
+    font-size: 0.95rem;
+    color: var(--text);
+    flex: 1;
+}
+
+.hadith-book-range {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
+/* ===================== */
+/*      DUAS PAGE        */
+/* ===================== */
+.duas-categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.dua-category-card {
+    border: 1px solid var(--border);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    direction: ltr;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0;
+    animation: fadeIn 0.6s ease forwards;
+    background: var(--bg-card);
+    box-shadow: var(--shadow-card);
+}
+
+.dua-category-card:hover {
+    border-color: var(--cypress-press);
+    background: var(--bg-raised);
+}
+
+.dua-category-card .dc-name {
+    font-family: 'Spectral', serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 0.4rem;
+}
+
+.dua-category-card .dc-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: var(--text-soft);
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+.dua-category-card .dc-count {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--sage);
+}
+
+/* Dua items */
+.duas-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.dua-item {
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.dua-item-title {
+    font-family: 'Spectral', serif;
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--cypress);
+    margin-bottom: 1rem;
+}
+
+.dua-item-arabic {
+    font-family: 'Amiri', serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 2;
+    direction: rtl;
+    text-align: right;
+    color: var(--text);
+    margin-bottom: 1rem;
+}
+
+.dua-item-translit {
+    font-family: 'Spectral', serif;
+    font-size: 0.95rem;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.8;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+}
+
+.dua-item-translation {
+    font-family: 'Spectral', serif;
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.85;
+    color: var(--text-soft);
+    margin-bottom: 0.75rem;
+}
+
+.dua-item-source {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+.dua-item-repeat {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-top: 0.5rem;
+}
+
+/* ===================== */
+/*      MODAL            */
+/* ===================== */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(44, 36, 22, 0.5);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    max-width: 640px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 3rem;
+    position: relative;
+    opacity: 0;
+    animation: fadeIn 0.4s ease forwards;
+}
+
+.modal-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: color 0.3s ease;
+    line-height: 1;
+}
+
+.modal-close:hover {
+    color: var(--cypress);
+}
+
+.modal .modal-number {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
+}
+
+.modal .modal-arabic {
+    font-family: 'Amiri', serif;
+    font-size: 4rem;
+    font-weight: 700;
+    direction: rtl;
+    text-align: center;
+    margin-bottom: 0.75rem;
+    color: var(--cypress);
+}
+
+.modal .modal-translit {
+    font-family: 'Spectral', serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-align: center;
+    margin-bottom: 0.4rem;
+}
+
+.modal .modal-translated {
+    font-family: 'Spectral', serif;
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: var(--text-soft);
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.modal .modal-audio {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.play-button {
+    font-family: 'Spectral', serif;
+    font-size: 0.95rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    background: none;
+    border: 1px solid var(--border);
+    padding: 0.6rem 1.8rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.play-button:hover {
+    border-color: var(--cypress);
+    color: var(--cypress);
+}
+
+.modal .modal-meaning {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: var(--text-soft);
+    line-height: 1.9;
+    margin-bottom: 1.5rem;
+    border-top: 1px solid var(--border-light);
+    padding-top: 1.5rem;
+}
+
+.modal .modal-details {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: var(--text-soft);
+    line-height: 2;
+}
+
+.modal .modal-details strong {
+    font-weight: 500;
+    color: var(--text);
+}
+
+/* Daily modal content */
+.modal .daily-modal-arabic {
+    font-family: 'Amiri', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    direction: rtl;
+    text-align: center;
+    line-height: 1.8;
+    color: var(--cypress);
+    margin-bottom: 1.5rem;
+}
+
+.modal .daily-modal-translit {
+    font-family: 'Spectral', serif;
+    font-size: 1rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.modal .daily-modal-translation {
+    font-family: 'Spectral', serif;
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: var(--text-soft);
+    line-height: 1.9;
+    margin-bottom: 1.5rem;
+}
+
+.modal .daily-modal-source {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+    border-top: 1px solid var(--border-light);
+    padding-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.modal .daily-modal-grade {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--on-cypress);
+    background: var(--cypress-bg);
+    padding: 0.2rem 0.6rem;
+    margin-top: 0.25rem;
+}
+
+.modal .daily-modal-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border-light);
+    padding-top: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.modal .daily-modal-footer button {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    padding: 0.5rem 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.modal .daily-modal-footer button:hover {
+    border-color: var(--cypress);
+    color: var(--cypress);
+}
+
+/* ===================== */
+/*    HIJRI CALENDAR     */
+/* ===================== */
+.cal-today-box {
+    background: var(--cypress-bg);
+    color: var(--pale-sage);
+    padding: 1.5rem 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.cal-today-box .cal-today-hijri {
+    font-family: 'Amiri', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--on-cypress);
+    direction: rtl;
+    margin-bottom: 0.25rem;
+}
+
+.cal-today-box .cal-today-gregorian {
+    font-family: 'Spectral', serif;
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--sage);
+}
+
+.cal-today-box .cal-today-weekday {
+    font-family: 'Amiri', serif;
+    font-size: 1.1rem;
+    color: var(--pale-sage);
+    margin-bottom: 0.25rem;
+}
+
+.cal-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.cal-nav-btn {
+    font-family: 'Spectral', serif;
+    font-size: 1.2rem;
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text-soft);
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cal-nav-btn:hover {
+    border-color: var(--cypress);
+    color: var(--cypress);
+}
+
+.cal-nav-title {
+    text-align: center;
+    min-width: 250px;
+}
+
+.cal-nav-title .cal-hijri-month {
+    font-family: 'Amiri', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--cypress);
+    direction: rtl;
+}
+
+.cal-nav-title .cal-hijri-month-en {
+    font-family: 'Spectral', serif;
+    font-size: 1rem;
+    color: var(--text-soft);
+}
+
+.cal-month-info {
+    background: var(--bg-raised);
+    border: 1px solid var(--border);
+    padding: 1.5rem 2rem;
+    margin-bottom: 2rem;
+    display: none;
+}
+
+.cal-month-info.visible {
+    display: block;
+}
+
+.cal-month-info h3 {
+    font-family: 'Spectral', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--cypress);
+    margin-bottom: 0.75rem;
+}
+
+.cal-month-info p {
+    font-family: 'Spectral', serif;
+    font-size: 0.95rem;
+    line-height: 1.85;
+    color: var(--text-soft);
+}
+
+.cal-month-info .sacred-badge {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--cypress);
+    border: 1px solid var(--cypress-press);
+    padding: 0.2rem 0.6rem;
+    display: inline-block;
+    margin-bottom: 0.75rem;
+}
+
+.cal-grid-wrapper {
+    max-width: 700px;
+    margin: 0 auto 2rem;
+}
+
+.cal-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 0.5rem;
+}
+
+.cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+}
+
+.cal-day {
+    text-align: center;
+    padding: 0.75rem 0.25rem;
+    min-height: 70px;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+    cursor: default;
+}
+
+.cal-day:hover {
+    background: var(--bg-raised);
+}
+
+.cal-day.empty {
+    min-height: 70px;
+}
+
+.cal-day.today {
+    background: var(--cypress-bg);
+    border-color: var(--cypress-bg);
+}
+
+.cal-day.today .cal-day-hijri {
+    color: var(--on-cypress);
+}
+
+.cal-day.today .cal-day-greg {
+    color: var(--sage);
+}
+
+.cal-day.has-holiday {
+    border-color: var(--cypress-press);
+}
+
+.cal-day .cal-day-hijri {
+    font-family: 'Amiri', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.15rem;
+}
+
+.cal-day .cal-day-greg {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.65rem;
+    color: var(--text-muted);
+}
+
+.cal-day .cal-day-dot {
+    width: 4px;
+    height: 4px;
+    background: var(--cypress-bg-press);
+    border-radius: 50%;
+    margin: 0.25rem auto 0;
+}
+
+.cal-day.today .cal-day-dot {
+    background: var(--sage);
+}
+
+.cal-events {
+    margin-top: 1rem;
+}
+
+.cal-events .cal-event-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--olive);
+    margin-bottom: 1rem;
+}
+
+.cal-event-item {
+    display: flex;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border-light);
+    align-items: baseline;
+}
+
+.cal-event-item .event-date {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--cypress);
+    min-width: 80px;
+    flex-shrink: 0;
+}
+
+.cal-event-item .event-name {
+    font-family: 'Spectral', serif;
+    font-size: 0.95rem;
+    color: var(--text);
+}
+
+.cal-months-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+}
+
+.cal-month-card {
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    direction: ltr;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: var(--bg-card);
+    box-shadow: var(--shadow-card);
+}
+
+.cal-month-card:hover {
+    border-color: var(--cypress-press);
+    background: var(--bg-raised);
+}
+
+.cal-month-card.sacred {
+    border-left: 3px solid var(--cypress);
+}
+
+.cal-month-card .month-num {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.cal-month-card .month-ar {
+    font-family: 'Amiri', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--cypress);
+    direction: rtl;
+    margin-bottom: 0.25rem;
+}
+
+.cal-month-card .month-en {
+    font-family: 'Spectral', serif;
+    font-size: 1rem;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+}
+
+.cal-month-card .month-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    color: var(--text-soft);
+    line-height: 1.6;
+}
+
+/* Theme toggle */
+.theme-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 100;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-card);
+    padding: 0.4rem;
+    cursor: pointer;
+    font-size: 1.1rem;
+    line-height: 1;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+}
+
+.theme-toggle:hover {
+    border-color: var(--cypress);
+}
+
+/* ===================== */
+/*     ANIMATIONS        */
+/* ===================== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
