@@ -134,10 +134,10 @@ export default function HadithPage() {
   // View 1: Collections Grid
   if (view === 'collections') {
     return (
-      <div className="page-container">
+      <div className="inner-page">
         <ThemeToggle />
         <div className="top-bar">
-          <Link href="/hall" className="back-btn">← Return to the Hall</Link>
+          <Link href="/hall" className="back-button">← Return to the Hall</Link>
         </div>
 
         <div className="page-header">
@@ -145,42 +145,44 @@ export default function HadithPage() {
           <p>The Prophetic Traditions</p>
         </div>
 
-        <div className="mode-toggle">
-          <button
-            className={`mode-btn ${mode === 'browse' ? 'active' : ''}`}
-            onClick={() => setMode('browse')}
-          >
-            Browse
-          </button>
-          <button
-            className={`mode-btn ${mode === 'learn' ? 'active' : ''}`}
-            onClick={() => setMode('learn')}
-          >
-            Learn
-          </button>
-        </div>
+        <div className="inner-content">
+          <div className="mode-toggle">
+            <button
+              className={`mode-btn ${mode === 'browse' ? 'active' : ''}`}
+              onClick={() => setMode('browse')}
+            >
+              Browse
+            </button>
+            <button
+              className={`mode-btn ${mode === 'learn' ? 'active' : ''}`}
+              onClick={() => setMode('learn')}
+            >
+              Learn
+            </button>
+          </div>
 
-        {mode === 'learn' ? (
-          <div className="learn-placeholder">
-            <p>Learning mode coming soon.</p>
-          </div>
-        ) : (
-          <div className="hadith-collections-grid">
-            {HADITH_COLLECTIONS.map((col) => (
-              <div
-                key={col.id}
-                className="hadith-collection-card"
-                onClick={() => selectCollection(col)}
-              >
-                <div className="hc-arabic">{col.ar}</div>
-                <div className="hc-name">{col.en}</div>
-                <div className="hc-author">{col.author}</div>
-                <div className="hc-meta">{col.total.toLocaleString()} hadiths</div>
-                <div className="hc-grade">{col.grade}</div>
-              </div>
-            ))}
-          </div>
-        )}
+          {mode === 'learn' ? (
+            <div className="loading-text">
+              Learning mode coming soon.
+            </div>
+          ) : (
+            <div className="hadith-collections-grid">
+              {HADITH_COLLECTIONS.map((col) => (
+                <div
+                  key={col.id}
+                  className="hadith-collection-card"
+                  onClick={() => selectCollection(col)}
+                >
+                  <div className="hc-arabic">{col.ar}</div>
+                  <div className="hc-name">{col.en}</div>
+                  <div className="hc-author">{col.author}</div>
+                  <div className="hc-meta">{col.total.toLocaleString()} hadiths</div>
+                  <div className="hc-grade">{col.grade}</div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
     );
   }
@@ -191,10 +193,10 @@ export default function HadithPage() {
     const bookData = HADITH_BOOKS[selectedCollection.id];
 
     return (
-      <div className="page-container">
+      <div className="inner-page">
         <ThemeToggle />
         <div className="top-bar">
-          <button className="back-btn" onClick={() => setView('collections')}>
+          <button className="back-button" onClick={() => setView('collections')}>
             ← All Collections
           </button>
         </div>
@@ -205,22 +207,24 @@ export default function HadithPage() {
           <p>{bookNums.length} books &middot; {selectedCollection.total.toLocaleString()} hadiths</p>
         </div>
 
-        <div className="hadith-books-grid">
-          {bookNums.map((num) => {
-            const details = bookData.section_details[num];
-            const count = details.hadithnumber_last - details.hadithnumber_first + 1;
-            return (
-              <div
-                key={num}
-                className="hadith-book-card"
-                onClick={() => selectBook(num)}
-              >
-                <div className="hadith-book-num">Book {num}</div>
-                <div className="hadith-book-name">{bookData.sections[num]}</div>
-                <div className="hadith-book-range">{count} hadith{count !== 1 ? 's' : ''}</div>
-              </div>
-            );
-          })}
+        <div className="inner-content">
+          <div className="hadith-books-grid">
+            {bookNums.map((num) => {
+              const details = bookData.section_details[num];
+              const count = details.hadithnumber_last - details.hadithnumber_first + 1;
+              return (
+                <div
+                  key={num}
+                  className="hadith-book-card"
+                  onClick={() => selectBook(num)}
+                >
+                  <div className="hadith-book-num">Book {num}</div>
+                  <div className="hadith-book-name">{bookData.sections[num]}</div>
+                  <div className="hadith-book-range">{count} hadith{count !== 1 ? 's' : ''}</div>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     );
@@ -232,15 +236,15 @@ export default function HadithPage() {
     const total = getTotal();
 
     return (
-      <div className="page-container">
+      <div className="inner-page">
         <ThemeToggle />
         <div className="top-bar">
           {selectedBook ? (
-            <button className="back-btn" onClick={() => { setView('books'); setHadith(null); }}>
+            <button className="back-button" onClick={() => { setView('books'); setHadith(null); }}>
               ← All Books
             </button>
           ) : (
-            <button className="back-btn" onClick={() => { setView('collections'); setHadith(null); }}>
+            <button className="back-button" onClick={() => { setView('collections'); setHadith(null); }}>
               ← All Collections
             </button>
           )}
@@ -254,38 +258,42 @@ export default function HadithPage() {
           )}
         </div>
 
-        <div className="hadith-jump">
-          <input
-            type="number"
-            min="1"
-            max={total}
-            value={jumpInput}
-            onChange={(e) => setJumpInput(e.target.value)}
-            placeholder={String(position)}
-            onKeyDown={(e) => e.key === 'Enter' && handleJump()}
-          />
-          <button onClick={handleJump}>Go</button>
-          <span>of {total}</span>
-        </div>
+        <div className="inner-content">
+          <div className="hadith-browser">
+            <div className="hadith-jump">
+              <input
+                type="number"
+                min="1"
+                max={total}
+                value={jumpInput}
+                onChange={(e) => setJumpInput(e.target.value)}
+                placeholder={String(position)}
+                onKeyDown={(e) => e.key === 'Enter' && handleJump()}
+              />
+              <button onClick={handleJump}>Go</button>
+              <span className="hadith-jump-label">of {total}</span>
+            </div>
 
-        <div className="hadith-nav">
-          <button onClick={goPrev} disabled={atStart()}>Previous</button>
-          <span>{position} / {total}</span>
-          <button onClick={goNext} disabled={atEnd()}>Next</button>
-        </div>
+            <div className="hadith-nav">
+              <button className="hadith-nav-btn" onClick={goPrev} disabled={atStart()}>Previous</button>
+              <span className="hadith-nav-num">{position} / {total}</span>
+              <button className="hadith-nav-btn" onClick={goNext} disabled={atEnd()}>Next</button>
+            </div>
 
-        <div className="hadith-display">
-          {loading && <p>Loading...</p>}
-          {hadith && (
-            <>
-              <div className="hadith-arabic-text">{hadith.arabic}</div>
-              <div className="hadith-english-text">{hadith.english}</div>
-              {hadith.grade && (
-                <div className="hadith-grade-badge">{hadith.grade}</div>
+            <div className="hadith-display">
+              {loading && <p className="loading-text">Loading...</p>}
+              {hadith && (
+                <>
+                  <div className="hadith-arabic-text">{hadith.arabic}</div>
+                  <div className="hadith-english-text">{hadith.english}</div>
+                  {hadith.grade && (
+                    <div className="hadith-grade-badge">{hadith.grade}</div>
+                  )}
+                  <div className="hadith-number-label">Hadith #{hadith.hadithnumber}</div>
+                </>
               )}
-              <div className="hadith-number-label">Hadith #{hadith.hadithnumber}</div>
-            </>
-          )}
+            </div>
+          </div>
         </div>
       </div>
     );

@@ -321,6 +321,8 @@ export default function QuranPage() {
           <button className="back-button" onClick={goBack}>← All Surahs</button>
         </div>
 
+        <div className="inner-content">
+        <div className="surah-detail">
         {/* Surah header */}
         <div className="surah-detail-header">
           <div className="surah-detail-arabic">{selectedSurah.name_arabic}</div>
@@ -407,6 +409,8 @@ export default function QuranPage() {
             />
           ))
         )}
+        </div>
+        </div>
       </div>
     );
   }
@@ -458,14 +462,12 @@ export default function QuranPage() {
             >
               <div className="surah-number">{ch.id}</div>
               <div className="surah-info">
+                <div className="surah-name-ar">{ch.name_arabic}</div>
                 <div className="surah-name-en">{ch.name_simple}</div>
                 <div className="surah-meta">
                   {ch.translated_name?.name} &middot; {ch.revelation_place}{' '}
                   &middot; {ch.verses_count} ayat
                 </div>
-              </div>
-              <div className="surah-right">
-                <div className="surah-name-ar">{ch.name_arabic}</div>
               </div>
             </div>
           ))}

@@ -50,9 +50,9 @@ export default function DuasPage() {
 
   if (loading) {
     return (
-      <div className="page-container">
+      <div className="inner-page">
         <ThemeToggle />
-        <p>Loading...</p>
+        <p className="loading-text">Loading...</p>
       </div>
     );
   }
@@ -60,10 +60,10 @@ export default function DuasPage() {
   // View 1: Categories Grid
   if (view === 'categories') {
     return (
-      <div className="page-container">
+      <div className="inner-page">
         <ThemeToggle />
         <div className="top-bar">
-          <Link href="/hall" className="back-btn">← Return to the Hall</Link>
+          <Link href="/hall" className="back-button">← Return to the Hall</Link>
         </div>
 
         <div className="page-header">
@@ -71,18 +71,20 @@ export default function DuasPage() {
           <p>Authentic Duas from Quran &amp; Sunnah</p>
         </div>
 
-        <div className="duas-categories-grid">
-          {categories.map((cat) => (
-            <div
-              key={cat.id}
-              className="dua-category-card"
-              onClick={() => selectCategory(cat)}
-            >
-              <div className="dc-name">{cat.name}</div>
-              {cat.description && <div className="dc-desc">{cat.description}</div>}
-              <div className="dc-count">{getDuaCount(cat.id)} duas</div>
-            </div>
-          ))}
+        <div className="inner-content">
+          <div className="duas-categories-grid">
+            {categories.map((cat) => (
+              <div
+                key={cat.id}
+                className="dua-category-card"
+                onClick={() => selectCategory(cat)}
+              >
+                <div className="dc-name">{cat.name}</div>
+                {cat.description && <div className="dc-desc">{cat.description}</div>}
+                <div className="dc-count">{getDuaCount(cat.id)} duas</div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     );
@@ -93,10 +95,10 @@ export default function DuasPage() {
     const filteredDuas = getFilteredDuas();
 
     return (
-      <div className="page-container">
+      <div className="inner-page">
         <ThemeToggle />
         <div className="top-bar">
-          <button className="back-btn" onClick={backToCategories}>
+          <button className="back-button" onClick={backToCategories}>
             ← All Categories
           </button>
         </div>
@@ -106,17 +108,19 @@ export default function DuasPage() {
           {selectedCategory.description && <p>{selectedCategory.description}</p>}
         </div>
 
-        <div className="duas-list">
-          {filteredDuas.map((dua, i) => (
-            <div key={dua.id || i} className="dua-item">
-              {dua.title && <div className="dua-item-title">{dua.title}</div>}
-              {dua.arabic && <div className="dua-item-arabic">{dua.arabic}</div>}
-              {dua.transliteration && <div className="dua-item-translit">{dua.transliteration}</div>}
-              {dua.translation && <div className="dua-item-translation">{dua.translation}</div>}
-              {dua.source && <div className="dua-item-source">{dua.source}</div>}
-              {dua.repeat && <div className="dua-item-repeat">{dua.repeat}</div>}
-            </div>
-          ))}
+        <div className="inner-content">
+          <div className="duas-list">
+            {filteredDuas.map((dua, i) => (
+              <div key={dua.id || i} className="dua-item">
+                {dua.title && <div className="dua-item-title">{dua.title}</div>}
+                {dua.arabic && <div className="dua-item-arabic">{dua.arabic}</div>}
+                {dua.transliteration && <div className="dua-item-translit">{dua.transliteration}</div>}
+                {dua.translation && <div className="dua-item-translation">{dua.translation}</div>}
+                {dua.source && <div className="dua-item-source">{dua.source}</div>}
+                {dua.repeat && <div className="dua-item-repeat">{dua.repeat}</div>}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     );

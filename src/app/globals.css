@@ -735,6 +735,10 @@ body {
     color: var(--cypress);
 }
 
+.ayah-tool-btn.playing {
+    color: var(--cypress);
+}
+
 .ayah-tool-btn svg {
     width: 18px;
     height: 18px;
@@ -1467,6 +1471,11 @@ body {
 }
 
 .play-button:hover {
+    border-color: var(--cypress);
+    color: var(--cypress);
+}
+
+.play-button.playing {
     border-color: var(--cypress);
     color: var(--cypress);
 }
